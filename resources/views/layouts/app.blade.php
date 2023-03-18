@@ -11,6 +11,7 @@
 
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.png') }}" type="image/png" />
+    @yield('styles')
     @livewireStyles
 </head>
 
@@ -23,7 +24,7 @@
                 <div class="page-heading">
                     @include('layouts.components.page_title')
                     <section class="section">
-                       
+                        @yield('content')
                     </section>
                 </div>
 
@@ -33,6 +34,7 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{ asset('assets/js/app.js')}}"></script>
+    @yield('scripts')
     @livewireScripts
 </body>
 

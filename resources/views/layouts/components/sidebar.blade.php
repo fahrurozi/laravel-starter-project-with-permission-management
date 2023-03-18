@@ -44,7 +44,7 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item">
-                    <a href="index.html" class="sidebar-link">
+                    <a href="{{route('dashboard')}}" class="sidebar-link">
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
@@ -53,14 +53,17 @@
                 <li class="sidebar-item has-sub">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-stack"></i>
-                        <span>Components</span>
+                        <span>Authorization</span>
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="component-alert.html">Alert</a>
+                            <a href="component-alert.html">User</a>
                         </li>
                         <li class="submenu-item">
-                            <a href="component-badge.html">Badge</a>
+                            <a href="component-badge.html">Role</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="component-badge.html">Permission</a>
                         </li>
                     </ul>
                 </li>
