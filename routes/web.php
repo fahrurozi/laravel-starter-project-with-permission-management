@@ -21,6 +21,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', function () {
+    // dd(Route::getCurrentRoute()->getName());
     return view('dashboard.index');
 })->middleware(['auth'])->name('dashboard');
 

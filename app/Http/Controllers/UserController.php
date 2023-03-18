@@ -19,6 +19,7 @@ class UserController extends Controller
     {
         $users = $this->userService->getAll();
 
+        debug($users);
         return view('dashboard.authorization.user.index', compact('users'));
     }
 }
