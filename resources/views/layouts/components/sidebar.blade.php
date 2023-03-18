@@ -57,7 +57,7 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item">
-                            <a href="component-alert.html">User</a>
+                            <a href="{{route('admin.user.index')}}">User</a>
                         </li>
                         <li class="submenu-item">
                             <a href="component-badge.html">Role</a>
