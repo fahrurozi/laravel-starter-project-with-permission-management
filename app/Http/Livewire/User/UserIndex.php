@@ -24,6 +24,6 @@ class UserIndex extends Component
 
     public function showNotification($user)
     {
-        session()->flash('message', 'Data User '.$user['name'].' Berhasil Ditambahkan.');
+        app('flasher')->addSuccess('Data User '.$user['name'].' Berhasil Ditambahkan.');
     }
 }
