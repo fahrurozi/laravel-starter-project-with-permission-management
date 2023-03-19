@@ -1,7 +1,7 @@
 <div>
     <button type="button" class="btn btn-primary px-4 btn-lg" wire:click="$emit('openCreateModal')">Tambah Data</button>
 
-    <div wire:ignore.self class="modal" tabindex="-1" role="dialog" id="modalCreate" wire:ignore.self>
+    <div wire:ignore.self class="modal fade" tabindex="-1" role="dialog" id="modalCreate" wire:ignore.self>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
