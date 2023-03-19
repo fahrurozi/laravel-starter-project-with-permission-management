@@ -21,22 +21,23 @@
                         @endif
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" wire:model="name" >
+                            <input type="text" class="form-control" id="name" name="name" wire:model="name">
                             @error('name') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" wire:model="email" >
+                            <input type="email" class="form-control" id="email" name="email" wire:model="email">
                             @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
                             <label for="phone">Password</label>
-                            <input type="text" class="form-control" id="password" name="password" wire:model="password" >
+                            <input type="text" class="form-control" id="password" name="password" wire:model="password">
                             @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">
                             <label for="phone">password confirmation</label>
-                            <input type="text" class="form-control" id="password_confirmation" name="password_confirmation" wire:model="password_confirmation" >
+                            <input type="text" class="form-control" id="password_confirmation"
+                                name="password_confirmation" wire:model="password_confirmation">
                             @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
@@ -51,19 +52,17 @@
     </div>
 
 
-
+    <script>
+        document.addEventListener('livewire:load', function () {
+        Livewire.on('openModal', () => {
+            $('#modalCreate').modal('show');
+        });
+        Livewire.on('closeModal', () => {
+            $('#modalCreate').modal('hide');
+        });
+        Livewire.on('userCreated', () => {
+            $('#modalCreate').modal('hide');
+        });
+    });
+    </script>
 </div>
-
-<script>
-    document.addEventListener('livewire:load', function () {
-    Livewire.on('openModal', () => {
-        $('#modalCreate').modal('show');
-    });
-    Livewire.on('closeModal', () => {
-        $('#modalCreate').modal('hide');
-    });
-    Livewire.on('userCreated', () => {
-        $('#modalCreate').modal('hide');
-    });
-});
-</script>

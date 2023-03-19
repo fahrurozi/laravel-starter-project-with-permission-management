@@ -15,6 +15,8 @@
 
     @livewireStyles
     <script src="{{ asset('assets/js/jquery-3.6.4.min.js')}}"></script>
+    
+    <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
 </head>
 
 <body>
@@ -36,7 +38,6 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{ asset('assets/js/app.js')}}"></script>
-    <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
     @livewireScripts
     @yield('scripts')
 </body>

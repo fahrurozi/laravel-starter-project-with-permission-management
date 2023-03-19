@@ -10,6 +10,7 @@ class UserIndex extends Component
 
     protected $listeners = [
         'userCreated' => 'showNotification',
+        'itemDeleted' => 'showDeleteNotification',
     ];
 
     public function render()
@@ -26,4 +27,11 @@ class UserIndex extends Component
     {
         app('flasher')->addSuccess('Data User '.$user['name'].' Berhasil Ditambahkan.');
     }
+
+    public function showDeleteNotification()
+    {
+        app('flasher')->addSuccess('Data User Berhasil Dihapus.');
+    }
+
+
 }
