@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.png') }}" type="image/png" />
     @yield('styles')
-    
+
     @livewireStyles
     <script src="{{ asset('assets/js/jquery-3.6.4.min.js')}}"></script>
 </head>
@@ -36,6 +36,7 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{ asset('assets/js/app.js')}}"></script>
+    <script src="{{asset('assets/js/sweetalert2@11.js')}}"></script>
     @livewireScripts
     @yield('scripts')
 </body>
