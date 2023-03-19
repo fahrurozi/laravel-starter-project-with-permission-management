@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Services\Contracts\UserServiceInterface;
 use Livewire\Component;
 
 class UserDelete extends Component
@@ -19,10 +20,9 @@ class UserDelete extends Component
         return view('livewire.user.user-delete');
     }
 
-    public function destroyItem($userId)
+    public function destroyItem($userId, UserServiceInterface $userService)
     {
-        $user = User::find($userId);
-        $user->delete();
+        $user = $userService->delete($userId);
 
         $this->emit('itemDeleted');
     }
