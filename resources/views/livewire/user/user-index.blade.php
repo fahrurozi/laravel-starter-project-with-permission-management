@@ -32,7 +32,8 @@
                                 <td class="text-bold-500">- role -</td>
                                 <td>- permission -</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal"
+                                    <button type="button" wire:click="getUser({{$user->id}})"
+                                        class="btn btn-primary px-4" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
                                         Edit
                                     </button>
@@ -49,6 +50,7 @@
                             </tr>
                             @endforeach
                             @livewire('user.user-delete')
+                            @livewire('user.user-edit')
                         </tbody>
                     </table>
                 </div>
@@ -82,6 +84,30 @@
                         'success'
                     )
                 })
-            })
+
+
+            Livewire.on('openEditModal', () => {
+                $('#modalEdit').modal('show');
+            });
+            Livewire.on('closeModal', () => {
+                $('#modalEdit').modal('hide');
+            });
+            Livewire.on('userUpdated', () => {
+                $('#modalEdit').modal('hide');
+            });
+
+            const modalEdit = document.getElementById('modalEdit');
+            const modalCreate = document.getElementById('modalCreate');
+
+            modalEdit.addEventListener('hidden.bs.modal', function () {
+                Livewire.emit('closeModal');
+            });
+
+            modalCreate.addEventListener('hidden.bs.modal', function () {
+                Livewire.emit('closeModal');
+            });
+
+
+        })
     </script>
 </div>

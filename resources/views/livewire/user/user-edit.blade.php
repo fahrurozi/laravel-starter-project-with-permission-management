@@ -1,24 +1,25 @@
 <div>
-    <button type="button" class="btn btn-primary px-4 btn-lg" wire:click="$emit('openCreateModal')">Tambah Data</button>
+    {{-- <button type="button" class="btn btn-primary px-4 btn-lg" wire:click="$emit('openEditModal')">Tambah Data</button> --}}
 
-    <div wire:ignore.self class="modal" tabindex="-1" role="dialog" id="modalCreate" wire:ignore.self>
+    <div wire:ignore.self class="modal" tabindex="-1" role="dialog" id="modalEdit" wire:ignore.self>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah Data</h5>
+                    <h5 class="modal-title">Edit Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
                         wire:click="$emit('closeModal')">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <form wire:submit.prevent="store()">
+                <form wire:submit.prevent="update()">
                     <div class="modal-body">
                         @if (session()->has('message'))
                         <div class="alert alert-success">
                             {{ session('message') }}
                         </div>
                         @endif
+                        <input type="hidden" name="userId" wire:model="userId" >
                         <div class="form-group">
                             <label for="name">Nama</label>
                             <input type="text" class="form-control" id="name" name="name" wire:model="name">
@@ -50,19 +51,4 @@
             </div>
         </div>
     </div>
-
-
-    <script>
-        document.addEventListener('livewire:load', function () {
-        Livewire.on('openCreateModal', () => {
-            $('#modalCreate').modal('show');
-        });
-        Livewire.on('closeModal', () => {
-            $('#modalCreate').modal('hide');
-        });
-        Livewire.on('userCreated', () => {
-            $('#modalCreate').modal('hide');
-        });
-    });
-    </script>
 </div>

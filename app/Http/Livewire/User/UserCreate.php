@@ -24,7 +24,7 @@ class UserCreate extends Component
     ];
 
     protected $listeners = [
-        'openModal' => 'showModal',
+        'openCreateModal' => 'showModal',
         'closeModal' => 'hideModal',
     ];
 
