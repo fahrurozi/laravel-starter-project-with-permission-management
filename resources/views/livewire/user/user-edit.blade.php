@@ -1,5 +1,6 @@
 <div>
-    {{-- <button type="button" class="btn btn-primary px-4 btn-lg" wire:click="$emit('openEditModal')">Tambah Data</button> --}}
+    {{-- <button type="button" class="btn btn-primary px-4 btn-lg" wire:click="$emit('openEditModal')">Tambah
+        Data</button> --}}
 
     <div wire:ignore.self class="modal fade" tabindex="-1" role="dialog" id="modalEdit" wire:ignore.self>
         <div class="modal-dialog" role="document">
@@ -14,12 +15,13 @@
 
                 <form wire:submit.prevent="update()">
                     <div class="modal-body">
-                        @if (session()->has('message'))
-                        <div class="alert alert-success">
-                            {{ session('message') }}
+                        @if(!$isDataReady)
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                            </div>
                         </div>
-                        @endif
-                        <input type="hidden" name="userId" wire:model="userId" >
+                        @else
+                        <input type="hidden" name="userId" wire:model="userId">
                         <div class="form-group">
                             <label for="name">Nama</label>
                             <input type="text" class="form-control" id="name" name="name" wire:model="name">
@@ -41,6 +43,8 @@
                                 name="password_confirmation" wire:model="password_confirmation">
                             @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
+                        @endif
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"

@@ -10,6 +10,7 @@ class UserEdit extends Component
 {
 
     public $userId, $name, $email, $password, $password_confirmation;
+    public $isDataReady = false;
 
     protected $listeners = [
         'getUser' => 'showUser',
@@ -33,6 +34,7 @@ class UserEdit extends Component
         $this->userId = $user['id'];
         $this->name = $user['name'];
         $this->email = $user['email'];
+        $this->isDataReady = true;
     }
 
     public function resetInputFields()
@@ -41,6 +43,7 @@ class UserEdit extends Component
         $this->email = '';
         $this->password = '';
         $this->password_confirmation = '';
+        $this->isDataReady = false;
         $this->resetValidation();
     }
 
