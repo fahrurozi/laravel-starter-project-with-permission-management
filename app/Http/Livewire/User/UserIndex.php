@@ -7,6 +7,11 @@ use Livewire\Component;
 
 class UserIndex extends Component
 {
+
+    protected $listeners = [
+        'userCreated' => 'showNotification',
+    ];
+
     public function render()
     {
         return view(
@@ -15,5 +20,10 @@ class UserIndex extends Component
                 'users' => User::latest()->get(),
             ]
         );
+    }
+
+    public function showNotification($user)
+    {
+        session()->flash('message', 'Data User '.$user['name'].' Berhasil Ditambahkan.');
     }
 }

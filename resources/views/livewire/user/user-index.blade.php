@@ -1,16 +1,12 @@
 <div>
     <div class="card p-4">
         <div class="card-header">
+            @if (session()->has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+              </div>
+              @endif
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-primary px-4 btn-lg" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Add
-                </button>
-
-                <div>
-                    
-                </div>
-
                 @livewire('user.user-create')
             </div>
         </div>
@@ -53,4 +49,3 @@
             </div>
         </div>
     </div>
-

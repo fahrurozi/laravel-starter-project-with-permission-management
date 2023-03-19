@@ -36,8 +36,8 @@
     </div>
     <script src="{{ asset('assets/js/bootstrap.js')}}"></script>
     <script src="{{ asset('assets/js/app.js')}}"></script>
-    @yield('scripts')
     @livewireScripts
+    @yield('scripts')
 </body>
 
 </html>

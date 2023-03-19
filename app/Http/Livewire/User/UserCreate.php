@@ -3,27 +3,42 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Services\Contracts\UserServiceInterface;
+use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class UserCreate extends Component
 {
-    public $name;
-    public $email;
-    public $phone;
+
+    protected $userService;
+
+    public $name, $email, $password, $password_confirmation;
+
 
     public $isOpen = 0;
+
+    protected $rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+    ];
 
     protected $listeners = [
         'openModal' => 'showModal',
         'closeModal' => 'hideModal',
     ];
+
+    public function mount(UserServiceInterface $userService)
+    {
+        $this->userService = $userService;
+    }
+
     public function render()
     {
         return view('livewire.user.user-create');
     }
     public function showModal()
     {
-        logger('Method showModal dipanggil!');
         $this->isOpen = true;
     }
 
@@ -37,21 +52,19 @@ class UserCreate extends Component
     {
         $this->name = '';
         $this->email = '';
-        $this->phone = '';
+        $this->password = '';
+        $this->password_confirmation = '';
     }
 
-    public function store()
+    public function store(UserServiceInterface $userService)
     {
-        $validatedData = $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-        ]);
+        $validatedData = $this->validate();
 
-        User::create($validatedData);
+        $user = $userService->create($validatedData);
 
-        session()->flash('message', 'Data Berhasil Ditambahkan.');
+        // session()->flash('message', 'Data Berhasil Ditambahkan.');
 
         $this->hideModal();
+        $this->emit('userCreated', $user);
     }
 }
