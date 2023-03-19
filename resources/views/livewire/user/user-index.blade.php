@@ -6,6 +6,12 @@
                     data-bs-target="#exampleModal">
                     Add
                 </button>
+
+                <div>
+                    
+                </div>
+
+                @livewire('user.user-create')
             </div>
         </div>
         <div class="card-content">
@@ -47,3 +53,4 @@
             </div>
         </div>
     </div>
+

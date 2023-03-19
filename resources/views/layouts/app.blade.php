@@ -12,7 +12,9 @@
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('/assets/images/logo/favicon.png') }}" type="image/png" />
     @yield('styles')
+    
     @livewireStyles
+    <script src="{{ asset('assets/js/jquery-3.6.4.min.js')}}"></script>
 </head>
 
 <body>
