@@ -7,7 +7,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Tambah Data</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        wire:click="$emit('hideModal')">
+                        wire:click="$emit('closeModal')">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            wire:click="$emit('hideModal')">Batal</button>
+                            wire:click="$emit('closeModal')">Batal</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
@@ -59,7 +59,7 @@
     Livewire.on('openModal', () => {
         $('#modalCreate').modal('show');
     });
-    Livewire.on('hideModal', () => {
+    Livewire.on('closeModal', () => {
         $('#modalCreate').modal('hide');
     });
     Livewire.on('userCreated', () => {

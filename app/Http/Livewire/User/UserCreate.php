@@ -54,6 +54,7 @@ class UserCreate extends Component
         $this->email = '';
         $this->password = '';
         $this->password_confirmation = '';
+        $this->resetValidation();
     }
 
     public function store(UserServiceInterface $userService)
@@ -61,8 +62,6 @@ class UserCreate extends Component
         $validatedData = $this->validate();
 
         $user = $userService->create($validatedData);
-
-        // session()->flash('message', 'Data Berhasil Ditambahkan.');
 
         $this->hideModal();
         $this->emit('userCreated', $user);
