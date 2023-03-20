@@ -44,6 +44,10 @@ class UserRoleIndex extends Component
     public function assignRole()
     {
         $validatedData = $this->validate();
+        if($this->user->hasRole($validatedData['role'])){
+            app('flasher')->addWarning('Role ' . $this->role. ' Sudah Diberikan.');
+            return;
+        }
         $this->user->assignRole($validatedData);
         $this->emit('roleAssigned');
     }
