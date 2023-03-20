@@ -2,10 +2,11 @@
 
 namespace App\Repositories\Eloquent;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Repositories\Contracts\RoleRepositoryInterface;
 use App\Repositories\Contracts\UserRepositoryInterface;
-use Spatie\Permission\Models\Role;
+
 
 class RoleRepository implements RoleRepositoryInterface
 {

@@ -21,7 +21,7 @@ class RoleIndex extends Component
         return view(
             'livewire..role.role-index',
             [
-                'roles' => Role::whereNotIn('name', ['super_admin', 'admin', 'user'])->get(),
+                'roles' => Role::get(),
             ]
         );
     }

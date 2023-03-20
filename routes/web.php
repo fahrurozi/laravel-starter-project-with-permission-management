@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,8 +28,9 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () {
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::get('/user/role/{id}', [UserController::class, 'show'])->name('user.show');
     Route::get('/role', [RoleController::class, 'index'])->name('role.index');
-    Route::get('/show/{id}', [RoleController::class, 'show'])->name('role.show');
+    Route::get('/role/{id}', [RoleController::class, 'show'])->name('role.show');
     // Route::get('/', [IndexController::class, 'index'])->name('index');
     // Route::resource('/roles', RoleController::class);
     // Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('roles.permissions');

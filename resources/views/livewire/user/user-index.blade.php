@@ -14,7 +14,7 @@
             <div class="card-body">
                 <!-- Table with outer spacing -->
                 <div class="table-responsive">
-                    <table class="table table-lg">
+                    <table class="table table-lg text-center">
                         <thead>
                             <tr>
                                 <th>NAME</th>
@@ -32,6 +32,7 @@
                                 <td class="text-bold-500">- role -</td>
                                 <td>- permission -</td>
                                 <td>
+                                    <a href="{{route('admin.user.show', $user->id)}}" class="btn btn-outline-success px-4">Role</a>
                                     <button type="button" wire:click="getUser({{$user->id}})"
                                         class="btn btn-primary px-4" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">

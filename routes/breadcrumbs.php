@@ -17,6 +17,14 @@ Breadcrumbs::for('user', function (BreadcrumbTrail $trail) {
     $trail->push('User', route('admin.user.index'));
 });
 
+// Dashboard > User > Detail
+Breadcrumbs::for('user.show', function (BreadcrumbTrail $trail, $user) {
+    $trail->parent('user');
+    $trail->push($user->name, route('admin.user.show', $user->id));
+});
+
+
+
 // Dashboard > Role
 Breadcrumbs::for('role', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');

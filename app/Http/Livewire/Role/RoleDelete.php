@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Role;
 
+use App\Models\Role as ModelsRole;
 use App\Services\Contracts\RoleServiceInterface;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
@@ -21,8 +22,10 @@ class RoleDelete extends Component
 
     public function destroyItem($roleId, RoleServiceInterface $roleService)
     {
-        $role = $roleService->delete($roleId);
-
-        $this->emit('roleDeleted');
+        // $role = $roleService->delete($roleId);
+        $role = ModelsRole::find($roleId);
+        if($role->delete()){
+            $this->emit('roleDeleted');
+        }
     }
 }
