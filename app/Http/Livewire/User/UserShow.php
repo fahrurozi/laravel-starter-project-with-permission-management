@@ -33,12 +33,10 @@ class UserShow extends Component
     {
         $this->userRole = $userRole;
         if (!$this->user->hasRole($userRole)) {
-
             $this->emit('itemDeleted', 'F');
             return;
         }
         $this->user->removeRole($userRole);
-
         $this->emit('itemDeleted', 'T');
     }
 
@@ -46,8 +44,9 @@ class UserShow extends Component
     {
         if ($status == 'T') {
             app('flasher')->addSuccess('Role ' . $this->userRole->name . ' Berhasil di cabut.');
+            $this->emit('deletedSuccess');
         } else {
-            app('flasher')->addWarning('User' . $this->user->name . " tidak memiliki role" . $this->userRole->name);
+            app('flasher')->addWarning('User' . $this->user->name . " tidak memiliki role " . $this->userRole->name);
         }
     }
 }

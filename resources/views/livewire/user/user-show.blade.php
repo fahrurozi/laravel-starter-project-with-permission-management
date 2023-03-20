@@ -44,7 +44,7 @@
                     })
                 })
     
-                Livewire.on('itemDeleted', function () {
+                Livewire.on('deletedSuccess', function () {
                     Swal.fire(
                         'Berhasil!',
                         'Item berhasil dihapus.',
