@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Services\Contracts\RoleServiceInterface;
 use App\Services\Contracts\UserServiceInterface;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
@@ -11,16 +12,24 @@ use Spatie\Permission\Models\Role;
 const ROOT_ROLE_PAGES = 'dashboard.authorization.role.';
 class RoleController extends Controller
 {
-    protected $userService;
+    protected $roleService;
 
-    public function __construct(UserServiceInterface $userService)
+    public function __construct(RoleServiceInterface $roleService)
     {
-        $this->userService = $userService;
+        $this->roleService = $roleService;
     }
 
     public function index()
     {
         return $this->__view('index');
+    }
+
+    public function show($id)
+    {
+        $data = [
+            'role' => $this->roleService->getById($id),
+        ];
+        return $this->__view('show', $data);
     }
 
 

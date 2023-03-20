@@ -22,3 +22,9 @@ Breadcrumbs::for('role', function (BreadcrumbTrail $trail) {
     $trail->parent('dashboard');
     $trail->push('Role', route('admin.role.index'));
 });
+
+// Dashboard > Role > Detail
+Breadcrumbs::for('role.show', function (BreadcrumbTrail $trail, $role) {
+    $trail->parent('role');
+    $trail->push($role->name, route('admin.role.show', $role->id));
+});

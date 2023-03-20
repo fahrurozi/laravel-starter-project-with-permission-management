@@ -26,11 +26,7 @@
                             <tr >
                                 <td class="text-bold-500">{{$role->name}}</td>
                                 <td>
-                                    <button type="button" wire:click=""
-                                        class="btn btn-outline-success px-4" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        Permission
-                                    </button>
+                                    <a href="{{route('admin.role.show', $role->id)}}" class="btn btn-outline-success px-4">Permission</a>
                                     <button type="button" wire:click="getRole({{$role->id}})"
                                         class="btn btn-primary px-4" data-bs-toggle="modal"
                                         data-bs-target="#exampleModal">
