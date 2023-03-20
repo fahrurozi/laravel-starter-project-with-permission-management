@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('breadcrumb')
-{{ Breadcrumbs::render('user') }}
+{{ Breadcrumbs::render('role') }}
 @endsection
 
 @section('title')
-User
+Role
 @endsection
 
 @section('content')
-@livewire('user.user-index')
+@livewire('role.role-index')
 @endsection
 
 
