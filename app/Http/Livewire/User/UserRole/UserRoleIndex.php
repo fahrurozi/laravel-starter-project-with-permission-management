@@ -12,10 +12,19 @@ class UserRoleIndex extends Component
 {
     public $user, $role;
 
+    protected $rules = [
+        'role' => 'required',
+    ];
+
     protected $listeners = [
         'assignRole' => 'assignRole',
         'roleAssigned' => 'showNotification',
     ];
+
+    public function mount()
+    {
+        $this->role = '';
+    }
 
     public function render()
     {
@@ -34,7 +43,8 @@ class UserRoleIndex extends Component
 
     public function assignRole()
     {
-        $this->user->assignRole($this->role);
+        $validatedData = $this->validate();
+        $this->user->assignRole($validatedData);
         $this->emit('roleAssigned');
     }
 

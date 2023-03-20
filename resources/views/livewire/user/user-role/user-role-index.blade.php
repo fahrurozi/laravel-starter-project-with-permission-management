@@ -19,12 +19,13 @@
                         @endif
                         <div class="form-group">
                             <label for="name">Roles</label>
-                            <select id="role" name="role" autocomplete="role-name" class="form-control " wire:model="role">
+                            <select id="role" name="role" autocomplete="role-name" class="form-control " wire:model="role"  wire:ignore>
+                                <option value="" disabled selected >- Pilih Role -</option>
                                 @foreach ($roles as $role)
                                 <option value="{{ $role->name }}">{{ $role->name }}</option>
                                 @endforeach
                             </select>
-                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                            @error('role') <span class="text-danger">{{ $message }}</span> @enderror
                         </div>
                     </div>
                 </div>
