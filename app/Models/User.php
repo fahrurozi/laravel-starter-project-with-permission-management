@@ -38,6 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    // menyebabkan password ke hash 2x
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
