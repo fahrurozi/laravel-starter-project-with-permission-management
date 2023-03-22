@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -49,3 +50,4 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('menu_permissions', 'Admin\MenuPermissionController');

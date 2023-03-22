@@ -33,6 +33,16 @@ class RoleController extends Controller
     }
 
 
+    // public function show($id)
+    // {
+    //     $menuPermission = MenuPermission::findOrFail($id);
+
+    //     $this->authorize('access-menu', [$menuPermission->menu_name, $menuPermission->permission_name]);
+
+    //     return view('menu_permissions.show', compact('menuPermission'));
+    // }
+
+
     public function __view($view, $data = null)
     {
         debug($data);

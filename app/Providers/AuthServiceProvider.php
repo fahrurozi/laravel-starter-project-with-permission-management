@@ -24,7 +24,9 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        Gate::define('access-menu', function ($user, $menuName, $permissionName) {
+            return $user->canAccessMenu($menuName) && $user->hasPermissionTo($permissionName);
+        });
         //
     }
 }

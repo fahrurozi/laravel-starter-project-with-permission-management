@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Services\Contracts\UserServiceInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 const ROOT_USER_PAGES = 'dashboard.authorization.user.';
 class UserController extends Controller
@@ -28,7 +30,12 @@ class UserController extends Controller
 
     public function show($id)
     {
+        // dd(Route::currentRouteName());
         $user = $this->userService->getById($id);
+
+        // $menuPermission = MenuPermission::findOrFail($id);
+
+        // $this->authorize('access-menu', [$menuPermission->menu_name, $menuPermission->permission_name]);
 
         $data = [
             'user' => $user
